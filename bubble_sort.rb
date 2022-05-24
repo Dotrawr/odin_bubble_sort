@@ -1,18 +1,16 @@
+# frozen_string_literal: true
+
 def bubble_sort(array)
-  if !array.is_a? (Array)
-    return "Not an array."
-  end
+  return 'Not an array.' unless array.is_a?(Array)
+
   moved = false
   array.each_with_index do |value, i|
-    if array[i + 1].nil? || value <= array[i + 1]
-      next
-    end
+    next if array[i + 1].nil? || value <= array[i + 1]
+
     moved = true
-    array[i], array[i+1] = array[i+1], array[i]
+    array[i], array[i + 1] = array[i + 1], array[i]
   end
-  if moved == true
-    bubble_sort(array) 
-  end
+  bubble_sort(array) if moved == true
   array
 end
 
